@@ -1,0 +1,7 @@
+version: '2'
+services:
+  benditodoce-mysql:
+    extends:
+      file: mysql.yml
+      service: benditodoce-mysql
+    container_name: benditodoce-mysql
