@@ -5,3 +5,9 @@ services:
       file: mysql.yml
       service: benditodoce-mysql
     container_name: benditodoce-mysql
+
+  benditodoce-rabbitmq:
+    extends:
+      file: rabbitmq.yml
+      service: rabbitmq
+    container_name: benditodoce-rabbitmq

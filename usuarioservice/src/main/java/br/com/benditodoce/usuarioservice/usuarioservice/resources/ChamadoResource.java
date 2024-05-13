@@ -9,6 +9,7 @@ import javax.validation.Valid;
 import br.com.benditodoce.usuarioservice.usuarioservice.domain.Chamado;
 import br.com.benditodoce.usuarioservice.usuarioservice.domain.dtos.ChamadoDTO;
 import br.com.benditodoce.usuarioservice.usuarioservice.services.ChamadoService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -21,11 +22,12 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 @RestController
+@RequiredArgsConstructor
 @RequestMapping(value = "/chamados")
 public class ChamadoResource {
 
-	@Autowired
-	private ChamadoService service;
+
+	private final ChamadoService service;
 
 	@GetMapping(value = "/{id}")
 	public ResponseEntity<ChamadoDTO> findById(@PathVariable Integer id) {

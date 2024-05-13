@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Date;
 
+import javax.servlet.Filter;
 import javax.servlet.FilterChain;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -18,7 +19,7 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-public class JWTAuthenticationFilter extends UsernamePasswordAuthenticationFilter {
+public class JWTAuthenticationFilter extends UsernamePasswordAuthenticationFilter implements Filter {
 
 	private AuthenticationManager authenticationManager;
 	private JWTUtil jwtUtil;
@@ -71,5 +72,5 @@ public class JWTAuthenticationFilter extends UsernamePasswordAuthenticationFilte
 				+ "\"message\": \"Email ou senha inválidos\", "
 				+ "\"path\": \"/login\"}";
 	}
-	
+
 }

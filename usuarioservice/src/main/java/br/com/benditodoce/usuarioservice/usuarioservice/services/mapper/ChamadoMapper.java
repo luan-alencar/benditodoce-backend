@@ -6,7 +6,6 @@ import br.com.benditodoce.usuarioservice.usuarioservice.domain.Tecnico;
 import br.com.benditodoce.usuarioservice.usuarioservice.domain.dtos.ChamadoDTO;
 import br.com.benditodoce.usuarioservice.usuarioservice.domain.enums.Prioridade;
 import br.com.benditodoce.usuarioservice.usuarioservice.domain.enums.Status;
-import br.com.benditodoce.usuarioservice.usuarioservice.services.mapper.EntityMapper;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 
