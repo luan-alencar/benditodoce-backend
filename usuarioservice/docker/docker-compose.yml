@@ -1,10 +1,10 @@
 version: '2'
 services:
-  benditodoce-mysql:
+  benditodoce-bd:
     extends:
-      file: mysql.yml
-      service: benditodoce-mysql
-    container_name: benditodoce-mysql
+      file: postgres.yml
+      service: benditodoce-bd
+    container_name: benditodoce-bd
 
   benditodoce-rabbitmq:
     extends:

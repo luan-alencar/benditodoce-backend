@@ -5,12 +5,14 @@ import java.util.Optional;
 
 import javax.validation.Valid;
 
+import br.com.benditodoce.usuarioservice.usuarioservice.domain.Carrinho;
 import br.com.benditodoce.usuarioservice.usuarioservice.domain.Cliente;
 import br.com.benditodoce.usuarioservice.usuarioservice.domain.Pessoa;
 import br.com.benditodoce.usuarioservice.usuarioservice.domain.dtos.ClienteDTO;
 import br.com.benditodoce.usuarioservice.usuarioservice.domain.dtos.EmailDTO;
 import br.com.benditodoce.usuarioservice.usuarioservice.exceptions.DataIntegrityViolationException;
 import br.com.benditodoce.usuarioservice.usuarioservice.exceptions.ObjectnotFoundException;
+import br.com.benditodoce.usuarioservice.usuarioservice.repositories.CarrinhoRepository;
 import br.com.benditodoce.usuarioservice.usuarioservice.repositories.ClienteRepository;
 import br.com.benditodoce.usuarioservice.usuarioservice.repositories.PessoaRepository;
 import lombok.RequiredArgsConstructor;
@@ -45,7 +47,7 @@ public class ClienteService {
         objDTO.setSenha(encoder.encode(objDTO.getSenha()));
         validaPorCpfEEmail(objDTO);
         EmailDTO emailDTO = gerarEmailCriarUsuario(objDTO);
-		produtorServico.enviarEmail(emailDTO);
+        produtorServico.enviarEmail(emailDTO);
         emailService.enviarEmailTexto(objDTO.getEmail(),
                 "Novo usuário cadastrado",
                 "Você está recebendo um email de cadastro o número para validação é ");

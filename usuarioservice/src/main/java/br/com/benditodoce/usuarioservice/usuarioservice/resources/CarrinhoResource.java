@@ -1,34 +1,31 @@
 package br.com.benditodoce.usuarioservice.usuarioservice.resources;
 
-import br.com.benditodoce.usuarioservice.usuarioservice.domain.dtos.ItemCarrinhoDTO;
+import br.com.benditodoce.usuarioservice.usuarioservice.domain.Carrinho;
+import br.com.benditodoce.usuarioservice.usuarioservice.domain.ItemCarrinho;
 import br.com.benditodoce.usuarioservice.usuarioservice.services.CarrinhoService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
-import java.math.BigDecimal;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/carrinho")
+@RequestMapping("/carrinhos")
 public class CarrinhoResource {
 
     private final CarrinhoService carrinhoService;
 
-    @PostMapping
-    public void adicionarItem(@RequestBody ItemCarrinhoDTO itemCarrinhoDTO) {
-        // Implemente a lógica para adicionar um item ao carrinho
+    @PostMapping("/clientes/{clienteID}")
+    public void criarCarrinho(@PathVariable("clienteID") Integer clienteID) {
+        carrinhoService.criarCarrinho(clienteID);
     }
 
-    @DeleteMapping("/{produtoId}")
-    public void removerItem(@PathVariable Integer produtoId) {
-        // Implemente a lógica para remover um item do carrinho
+    @PostMapping("/{carrinhoId}/adicionarItem")
+    public Carrinho adicionarItemCarrinho(@PathVariable Integer carrinhoId, @RequestBody ItemCarrinho item) {
+        return carrinhoService.adicionarItemCarrinho(carrinhoId, item);
     }
 
-    @GetMapping("/total")
-    public BigDecimal calcularTotal() {
-        // Implemente a lógica para calcular o total do carrinho
-        return null;
+    @PostMapping("/{carrinhoId}/removerItem")
+    public Carrinho removerItemCarrinho(@PathVariable Integer carrinhoId, @RequestBody ItemCarrinho item) {
+        return carrinhoService.removerItemCarrinho(carrinhoId, item);
     }
 }
 

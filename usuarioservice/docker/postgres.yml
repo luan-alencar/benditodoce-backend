@@ -1,0 +1,9 @@
+version: '2'
+services:
+  benditodoce-bd:
+    image: postgres:11.5
+    environment:
+      - POSTGRES_USER=benditodoce-bd
+      - POSTGRES_PASSWORD=benditodoce-bd
+    ports:
+      - 5432:5432

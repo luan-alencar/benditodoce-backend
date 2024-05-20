@@ -36,6 +36,9 @@ public class DBService {
 		Tecnico dicy = new Tecnico(null, "Dicyane", "360.058.370-01", "dicy@mail.com", encoder.encode("123"));
 		dicy.addPerfil(Perfil.ADMIN);
 
+		Tecnico cli = new Tecnico(null, "cliente", "765.083.960-56", "cliente@mail.com", encoder.encode("123"));
+		dicy.addPerfil(Perfil.CLIENTE);
+
 		Tecnico tec2 = new Tecnico(null, "Richard Stallman", "903.347.070-56", "stallman@mail.com", encoder.encode("123"));
 		Tecnico tec3 = new Tecnico(null, "Claude Elwood Shannon", "271.068.470-54", "shannon@mail.com", encoder.encode("123"));
 		Tecnico tec4 = new Tecnico(null, "Tim Berners-Lee", "162.720.120-39", "lee@mail.com", encoder.encode("123"));
@@ -54,7 +57,7 @@ public class DBService {
 		Chamado c5 = new Chamado(null, Prioridade.MEDIA, Status.ANDAMENTO, "Chamado 5", "Teste chamado 5", tec2, cli1);
 		Chamado c6 = new Chamado(null, Prioridade.BAIXA, Status.ENCERRADO, "Chamado 7", "Teste chamado 6", tec1, cli5);
 
-		pessoaRepository.saveAll(Arrays.asList(tec1, tec2, tec3, tec4, tec5, cli1, cli2, cli3, cli4, cli5, luan, dicy));
+		pessoaRepository.saveAll(Arrays.asList(tec1, tec2, tec3, tec4, tec5, cli1, cli2, cli3, cli4, cli5, luan, dicy, cli));
 		chamadoRepository.saveAll(Arrays.asList(c1, c2, c3, c4, c5, c6));
 	}
 }
